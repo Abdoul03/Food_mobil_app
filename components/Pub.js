@@ -22,7 +22,7 @@ const Pub = () => {
         <View className="w-2/5">
           <Image
             source={require("../assets/download (6) (1).jpeg")}
-            className="w-full rounded-lg"
+            className="w-full h-48 rounded-lg"
           />
         </View>
       </View>

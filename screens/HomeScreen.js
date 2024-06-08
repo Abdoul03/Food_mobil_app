@@ -4,12 +4,14 @@ import * as Icon from "react-native-feather";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Categories from "../components/Categories";
 import Pub from "../components/Pub";
-import RestaurantCard from "../components/RestaurantCard";
+import { Restaurants } from "../constants";
+import Resto from "../components/Resto";
 // import TabBar from "../components/TabBar";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView>
+      <StatusBar barStyle="dark-content" />
       {/* <TabBar /> */}
       <View className="px-4 pt-6">
         <Text className="text-lg font-semibold pb-2">Bienvenue</Text>
@@ -30,8 +32,19 @@ const HomeScreen = () => {
         <Pub />
         <Categories />
         {/* featured */}
-        <View className="mt-5">
-          <RestaurantCard />
+        <View>
+          {Restaurants.map((resto, index) => {
+            return (
+              <Resto
+                images={resto.image}
+                name={resto.name}
+                cate={resto.category}
+                adress={resto.adresse}
+                nourriture={resto.nourriture}
+                key={index}
+              />
+            );
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>
